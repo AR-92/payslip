@@ -15,8 +15,6 @@
     <!-- CSS Files -->
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
-    <link href="./css/datepicker.css" rel="stylesheet" />
-
     <style>
         .header {
             font-size: 10px;
@@ -33,10 +31,10 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
             <div class="logo">
-                <a href="" class="simple-text logo-mini">
+                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           PS
         </a>
-                <a href="" class="simple-text logo-normal">
+                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
           Pay Slips
         </a>
             </div>
@@ -44,7 +42,7 @@
                 <ul class="nav">
 
 
-                    <li>
+                    <li class="active ">
                         <a href="./index.html">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>Add Employees</p>
@@ -56,13 +54,12 @@
                             <p>old PaySilp</p>
                         </a>
                     </li> -->
-                    <li class="active ">
+                    <li>
                         <a href="./slip.html">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>PaySilp</p>
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -72,10 +69,10 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header row">
-                                <h4 class="card-title col" style="margin-right: 5px;line-height: unset;"> PaySlip</h4>
+                                <h4 class="card-title col" style="margin-right: 5px;line-height: unset;"> Employees</h4>
                                 <input type="text" class="form-control col " style="margin: 10px;height: 37px;" onkeyup="search(event.target.value)" placeholder="Search" value="">
-                                <input type="text" class="form-control  col-md-2 datepicker " onkeyup="unpdateDate(event.target.value)" style="margin: 10px;height: 37px;" placeholder="Date Picker" value="">
-                                <button type="button" onclick="getemployees()" id="newsheetbtn" class="btn btn-sm btn-primary col" style="margin-right: 25px;line-height: unset;border-radius: 25px;">Add New Sheet</button>
+                                <!-- <input type="text" class="form-control  col-md-2  " style="margin: auto;line-height: unset;" placeholder="Date Picker" value=""> -->
+                                <button type="button" onclick="" class="btn btn-sm btn-primary col" style="margin-right: 25px;line-height: unset;border-radius: 25px;" data-toggle="modal" data-target="#saveexampleModal">Add New Employee</button>
                                 <!-- <button type="button" onclick="" class="btn btn-sm btn-primary col" style="margin-right: 5px;line-height: unset;border-radius: 25px;" data-toggle="modal" data-target="#saveexampleModal">Add New Sheet</button> -->
 
                             </div>
@@ -101,18 +98,7 @@
                                             <th>
                                                 Amount
                                             </th>
-                                            <th>
-                                                Advance Amount
-                                            </th>
-                                            <th>
-                                                Nadara Cutting
-                                            </th>
-                                            <th>
-                                                Mess Cutting
-                                            </th>
-                                            <th>
-                                                Remaining Amount
-                                            </th>
+
                                             <th>
                                                 Edit
                                             </th>
@@ -128,7 +114,7 @@
 
                 </div>
             </div>
-            <!-- <div class="modal fade" id="saveexampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="saveexampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -176,32 +162,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Remaining Amount	</label>
-                                            <input type="number" id="remainingamount" class="form-control" disabled placeholder="" value="0">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 pr-1">
-                                        <div class="form-group">
-                                            <label>Advance Amount</label>
-                                            <input type="number" id="advanceamount" class="form-control" placeholder="" value="0">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 px-1">
-                                        <div class="form-group">
-                                            <label>Nadara Cutting</label>
-                                            <input type="number" id="nadaracutting" class="form-control" placeholder="" value="0">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 pl-1">
-                                        <div class="form-group">
-                                            <label>Mess Cutting </label>
-                                            <input type="number" id="messcutting" class="form-control" value="0" placeholder="0">
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -220,7 +180,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <div class="modal fade" id="editexampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -270,33 +230,9 @@
                                             <input type="number" id="editactualamount" class="form-control" placeholder="" value="0">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Remaining Amount	</label>
-                                            <input type="number" id="remainingamount" class="form-control" disabled placeholder="" value="0">
-                                        </div>
-                                    </div>
+
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4 pr-1">
-                                        <div class="form-group">
-                                            <label>Advance Amount</label>
-                                            <input type="number" id="advanceamount" class="form-control" placeholder="" value="0">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 px-1">
-                                        <div class="form-group">
-                                            <label>Nadara Cutting</label>
-                                            <input type="number" id="nadaracutting" class="form-control" placeholder="" value="0">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 pl-1">
-                                        <div class="form-group">
-                                            <label>Mess Cutting </label>
-                                            <input type="number" id="messcutting" class="form-control" value="0" placeholder="0">
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -337,6 +273,7 @@
         </div>
     </div>
     <!--   Core JS Files   -->
+
     <script src="./jquery.min.js"></script>
     <script src="./popper.min.js"></script>
     <script src="./bootstrap.min.js"></script>
@@ -345,101 +282,68 @@
     <script src="./pouchdb.js"></script>
     <script src="./pouchfind.js"></script>
     <script src="./bootstrap-datepicker.js"></script>
+    <script src="./pouchdb.js"></script>
+    <script src="./pouchfind.js"></script>
+    <script src="./data.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
 
-    <script>
-        var currentDate = moment("01-01-2019").format("MM-YYYY");
-        $('.datepicker').val(currentDate)
-        $('.datepicker').datepicker({
-            format: "mm-yyyy",
-            viewMode: "months",
-            minViewMode: "months"
-        }).on('changeDate', function(ev) {
-            currentDate = moment(ev.date).format("MM-YYYY");
-
-            console.log("date ", ev.target.value, ev.date)
-                // console.log("date mom", )
-            render('', currentDate)
-        })
-
-        function unpdateDate(value) {
-            console.log("date fin ", value)
-
-        }
-    </script>
     <script>
         var db = new PouchDB('payDb');
 
-        function getemployees() {
+        function populate() {
             db.find({
                 selector: {
-                    type: 'slip',
-                    date: {
-                        $regex: currentDate
-                    },
+                    type: 'employee',
                 },
             }).then((result) => {
-                console.log(result)
+                console.log("data length", data.length)
                 if (result.docs.length <= 0) {
-                    db.find({
-                        selector: {
-                            type: 'employee',
-                        },
-                    }).then((result) => {
-                        var newdata = [];
+                    var newdata = [];
+                    data.forEach(e => {
+                        delete e['S.N.'];
+                        delete e['Hatno'];
+                        e.type = 'employee';
+                        // console.log(e)
+                        // db.post(e)
+                        newdata.push(e)
+                    });
+                    // console.log("no data found", result, newdata);
+                    db.bulkDocs(newdata)
+                    render('')
 
-                        console.log(result)
-                        result.docs.forEach(x => {
-                            delete x._id;
-                            delete x._rev;
-                            delete x.Remarks;
-                            x.type = "slip";
-                            x.date = currentDate;
-                            x["Remaining Amount"] = 0;
-                            x["Advance Amount"] = 0;
-                            x["Nadara Cutting"] = 0;
-                            x["Mess Cutting"] = 0;
-                            // db.post(x);
-                            newdata.push(x)
-
-
-                        });
-                        db.bulkDocs(newdata)
-                        $('#newsheetbtn').attr("disabled", true);
-                        render('', currentDate)
-
-                    })
                 } else {
-                    $('#newsheetbtn').attr("disabled", true);
-                    render('', currentDate)
+
                 }
+                // result.docs.forEach(x => {
+                //     delete x._id;
+                //     delete x._rev;
+                //     delete x.Remarks;
+                //     x.type = "slip";
+                //     x["Remaining Amount"] = 0;
+                //     x["Advance Amount"] = 0;
+                //     x["Nadara Cutting"] = 0;
+                //     x["Mess Cutting"] = 0;
+                //     if (result.docs.legnth > 0) {
+                //         db.put(x)
+                //     }
+                //     // console.log(x);
+
+                // });
             })
-
         }
-        // getemployees()
+        populate()
 
-        function render(value, date) {
+        function render(value) {
             db.find({
                 selector: {
-                    type: 'slip',
+                    type: 'employee',
                     WorkNo: {
                         $regex: value
-                    },
-                    date: {
-                        $regex: date
-                    },
+                    }
                 },
             }).then((result) => {
                 // console.log("returned data ", result.docs);
                 data = result.docs;
-                if (data.length > 0) {
-                    $('#newsheetbtn').attr("disabled", true);
-
-                } else {
-                    $('#newsheetbtn').attr("disabled", false);
-
-                }
                 var html = "";
                 data.forEach((e, index) => {
                     html += `
@@ -454,7 +358,7 @@
                                   ${e["WorkerName"]}
                               </td>
                               <td>
-                                  ${e["C-N-I-C NO."].slice(0, 7)}
+                                  ${e["C-N-I-C NO."]}
                               </td>
                               <td>
                                   ${(e["Craft/Post"]).slice(0, 7)}
@@ -462,25 +366,13 @@
                               <td>
                                   ${e["Actualamount"]}
                               </td>
-                              <td>
-                                  ${e["Remaining Amount"]}
-                              </td>
-                              <td>
-                                  ${e["Advance Amount"]}
-                              </td>
-                              <td>
-                                  ${e["Nadara Cutting"]}
-                              </td>
-                              <td>
-                                  ${e["Mess Cutting"]}
-                              </td>
 
                               <td>
                                   <a href="" onclick="openedit('${e._id}')" data-toggle="modal" data-target="#editexampleModal">
                                       <i class="now-ui-icons ui-2_settings-90"></i>
                                   </a>
-                                  <a  onclick="printthis('${e["WorkNo"]}','${e["date"]}')" >
-                                      <i class="now-ui-icons files_paper"></i>
+                                  <a href="" onclick="del('${e._id}')" >
+                                      <i class="now-ui-icons ui-1_simple-remove"></i>
                                   </a>
                               </td>
                             </tr>
@@ -491,7 +383,7 @@
                 console.log(err);
             });
         }
-        render('', currentDate)
+        render('')
 
         function del(value) {
             db.get(value).then(function(doc) {
@@ -501,7 +393,7 @@
             }).catch(function(err) {
                 console.log(err);
             });
-            render('', currentDate)
+            render('')
         }
 
         function openedit(obj) {
@@ -515,10 +407,6 @@
                 $('#editcncic').val(doc['C-N-I-C NO.']);
                 $('#editdesignation').val(doc['Craft/Post']);
                 $('#editactualamount').val(doc['Actualamount']);
-                $('#remainingamount').val(doc["Remaining Amount"]);
-                $('#advanceamount').val(doc["Advance Amount"]);
-                $('#nadaracutting').val(doc["Nadara Cutting"]);
-                $('#messcutting').val(doc["Mess Cutting"]);
                 $('#editremarks').val(doc['Remarks']);
                 $('#editexampleModal').modal('show')
             }).then(function(result) {
@@ -526,7 +414,7 @@
             }).catch(function(err) {
                 console.log(err);
             });
-            // render('',currentDate)
+            // render('')
 
 
         }
@@ -541,19 +429,14 @@
             obj["C-N-I-C NO."] = $('#editcncic').val();
             obj["Craft/Post"] = $('#editdesignation').val();
             obj["Actualamount"] = $('#editactualamount').val();
-            obj["Remaining Amount"] = $('#remainingamount').val();
-            obj["Advance Amount"] = $('#advanceamount').val();
-            obj["Nadara Cutting"] = $('#nadaracutting').val();
-            obj["Mess Cutting"] = $('#messcutting').val();
             obj["Remarks"] = $('#editremarks').val();
-            obj["type"] = 'slip';
-            obj["date"] = currentDate;
+            obj["type"] = 'employee';
+            render('')
 
             console.log("edit data ", obj)
             db.put(obj).then(function(response) {
                 // handle response
                 $('#editexampleModal').modal('hide')
-                render('', currentDate)
             }).catch(function(err) {
                 console.log(err);
             });
@@ -566,76 +449,31 @@
 
         }
 
-        function printthis(no, date) {
-            console.log(no, date, location)
-            var u = `${location.origin}/examples/print.html?workno=${no}&${date}`;
-            window.open(u);
+        function save() {
+            var obj = {};
+            obj["WorkNo"] = $('#workerno').val();
+            obj["WorkerName"] = $('#workername').val();
+            obj["C-N-I-C NO."] = $('#cncic').val();
+            obj["Craft/Post"] = $('#designation').val();
+            obj["Actualamount"] = $('#actualamount').val();
+            obj["Remarks"] = $('#remarks').val();
+            obj["type"] = 'employee'
+            console.log("save entry of employee  ", obj);
+            if ($('#workerno').val() != "") {
+                console.log("submitted")
+                db.post(obj).then(function(response) {
+                    // handle response
+                    $('#saveexampleModal').modal('hide')
+                    render('')
 
+                }).catch(function(err) {
+                    console.log(err);
+                });
+            } else {
+                console.log("not submitted")
+
+            }
         }
-
-        // function save() {
-        //     var obj = {};
-        //     obj["WorkNo"] = $('#workerno').val();
-        //     obj["Worker Name"] = $('#workername').val();
-        //     obj["C-N-I-C NO."] = $('#cncic').val();
-        //     obj["Craft/Post"] = $('#designation').val();
-        //     obj["Actualamount"] = $('#editactualamount').val();
-        //     obj["Remarks"] = $('#remarks').val();
-        //     obj["type"] = 'employee'
-        //     console.log("save entry of employee  ", obj);
-        //     if ($('#workerno').val() != "") {
-        //         console.log("submitted")
-        //         db.post(obj).then(function(response) {
-        //             // handle response
-        //             $('#saveexampleModal').modal('hide')
-        //             render('', currentDate)
-
-        //         }).catch(function(err) {
-        //             console.log(err);
-        //         });
-        //     } else {
-        //         console.log("not submitted")
-
-        //     }
-        // }
-
-        $("#advanceamount").keyup(function() {
-            var adamount = $('#advanceamount').val();
-            var reamount = 0;
-            var messamount = $('#messcutting').val();
-            var nadamount = $('#nadaracutting').val();
-            var amount = $('#editactualamount').val();
-            var total = parseInt(adamount) + parseInt(messamount) + parseInt(nadamount);
-            reamount = amount - total;
-            console.log('hello key updated', reamount, total)
-
-            $('#remainingamount').val(reamount);
-        });
-        $("#messcutting").keyup(function() {
-            var adamount = $('#advanceamount').val();
-            var reamount = 0;
-            var messamount = $('#messcutting').val();
-            var nadamount = $('#nadaracutting').val();
-            var amount = $('#editactualamount').val();
-            var total = parseInt(adamount) + parseInt(messamount) + parseInt(nadamount);
-            reamount = amount - total;
-            console.log('hello key updated', reamount, total)
-
-
-            $('#remainingamount').val(reamount);
-        });
-        $("#nadaracutting").keyup(function() {
-            var adamount = $('#advanceamount').val();
-            var reamount = 0;
-            var messamount = $('#messcutting').val();
-            var nadamount = $('#nadaracutting').val();
-            var amount = $('#editactualamount').val();
-            var total = parseInt(adamount) + parseInt(messamount) + parseInt(nadamount);
-            reamount = amount - total;
-            console.log('hello key updated', reamount, total)
-
-            $('#remainingamount').val(reamount);
-        });
     </script>
 </body>
 
